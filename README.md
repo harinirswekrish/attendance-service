@@ -45,23 +45,6 @@ This service communicates securely using **JWT authentication** (validated via R
 | marked\_at                                        | TIMESTAMP                 | DEFAULT now()                              |
 | UNIQUE(student\_id, course\_id, attendance\_date) | Prevent duplicate marking |                                            |
 
-## 📂 Project Structure  
-attendance-service
-│── src/main/java/com/mini/school/erp/attendance_service
-│ ├── controller # REST controllers
-│ ├── service # Business logic
-│ ├── repository # JPA repositories
-│ ├── entity # JPA entities (Attendance)
-│ ├── config # Security/JWT/Redis configurations
-│ ├── exception # Custom exception handling
-│ └── AttendanceServiceApplication.java
-│
-│── src/main/resources
-│ ├── application.properties
-│
-└── pom.xml
-
-
 
 ## 🚀 Setup & Run
 
