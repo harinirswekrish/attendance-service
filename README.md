@@ -58,12 +58,9 @@ attendance-service
 │
 │── src/main/resources
 │ ├── application.properties
-│ 
 │
 └── pom.xml
 
-yaml
-Copy code
 
 
 ## 🚀 Setup & Run
