@@ -5,6 +5,7 @@ import com.mini.school.erp.attendance_service.client.StudentClient;
 import com.mini.school.erp.attendance_service.dto.AttendanceMarkRequest;
 import com.mini.school.erp.attendance_service.dto.AttendanceResponse;
 import com.mini.school.erp.attendance_service.entity.Attendance;
+import com.mini.school.erp.attendance_service.exception.BusinessValidationException;
 import com.mini.school.erp.attendance_service.exception.errormessages.ErrorMessages;
 import com.mini.school.erp.attendance_service.repository.AttendanceRepository;
 import com.mini.school.erp.attendance_service.service.AttendanceService;
@@ -60,6 +61,12 @@ public class AttendanceServiceImpl implements AttendanceService {
 
     @Override
     public List<AttendanceResponse> getAttendanceByCourseAndDate(Long courseId, LocalDate date) {
+
+        String course = courseClient.getCourse(courseId);
+        if (course == null) {
+            throw new BusinessValidationException(ErrorMessages.COURSE_NOT_FOUND + courseId);
+        }
+
         return attendanceRepository.findByCourseIdAndAttendanceDate(courseId, date)
                 .stream()
                 .map(a -> AttendanceResponse.builder()

@@ -14,11 +14,11 @@ public class StudentClient {
     private String studentServiceUrl;
 
     private final RestTemplate restTemplate;
-    private final String studentService = studentServiceUrl;
+
 
     public String getStudent(Long studentId) {
         ResponseEntity<String> response = restTemplate.exchange(
-                studentService + "/" + studentId,
+                studentServiceUrl + "/" + studentId,
                 HttpMethod.GET,
                 null,
                 String.class
