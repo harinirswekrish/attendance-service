@@ -45,6 +45,7 @@ This service communicates securely using **JWT authentication** (validated via R
 | marked\_at                                        | TIMESTAMP                 | DEFAULT now()                              |
 | UNIQUE(student\_id, course\_id, attendance\_date) | Prevent duplicate marking |                                            |
 
+
 ## 🚀 Setup & Run
 
 ### Prerequisites
